@@ -34,6 +34,7 @@ gem 'resque'
 gem 'resque-web', require: 'resque_web'
 gem 'resque-history'
 
+# this is bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.6'
 
 
