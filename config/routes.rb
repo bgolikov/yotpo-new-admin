@@ -61,10 +61,10 @@ Rails.application.routes.draw do
   #delete 'logout'  => 'sessions#destroy'
   get    'login'   => 'admin_login#show'
   get 'accounts/:app_key' => 'accounts#show'
-  get 'features' => 'features#show'
-  get 'accounts/:app_key/features' => 'accounts_features#show'
-  post 'accounts/:app_key/features/:feature_id' => 'accounts_features#create'
-  delete 'accounts/:app_key/features/:feature_id' => 'accounts_features#destroy'
+  get 'features' => 'features#index'
+  get 'accounts/:app_key/features' => 'accounts_features#index'
+  post 'accounts/:app_key/features/:feature_id' => 'accounts_features#enable_feature'
+  delete 'accounts/:app_key/features/:feature_id' => 'accounts_features#disable_feature'
 
   mount Resque::Server.new, :at => '/resque'
 end

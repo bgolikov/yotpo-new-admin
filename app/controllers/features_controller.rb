@@ -1,5 +1,5 @@
 class FeaturesController < ApplicationController
-  def show
+  def index
     features = YotpoApi::Feature.get_all_features
     if features
       render json: {:status => {:code => 200, :message => 'OK'}, :response  => {:features => features} }

@@ -10,12 +10,11 @@ class AdminLoginController < ApplicationController
               :roles => user.roles.map(&:name),
           }
       }
-      render :json => json_response
     else
       json_response = {
           :status => {:code => 401, :message => 'Bad credentials'}
       }
-      render json: json_response
     end
+    render json: json_response
   end
 end
