@@ -56,11 +56,15 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  get 'hello_world' => 'demo#hello_world'
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  #get 'hello_world' => 'demo#hello_world'
+  #post   'login'   => 'sessions#create'
+  #delete 'logout'  => 'sessions#destroy'
+  get    'login'   => 'admin_login#show'
   get 'accounts/:app_key' => 'accounts#show'
+  get 'features' => 'features#show'
+  get 'accounts/:app_key/features' => 'accounts_features#show'
+  post 'accounts/:app_key/features/:feature_id' => 'accounts_features#create'
+  delete 'accounts/:app_key/features/:feature_id' => 'accounts_features#destroy'
 
   mount Resque::Server.new, :at => '/resque'
 end
